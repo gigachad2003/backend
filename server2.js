@@ -9,11 +9,11 @@ app.use(bodyParser.json());
 
 // PostgreSQL (Supabase) connection
 const pool = new Pool({
-  user: 'postgres',                  // from Supabase
-  host: 'db.bqeuwmonxyysxpwwumvz.supabase.co',        // from Supabase
+  user: 'postgres.bqeuwmonxyysxpwwumvz',                  // from Supabase
+  host: 'aws-0-ap-south-1.pooler.supabase.com',        // from Supabase
   database: 'postgres',              // default database name in Supabase
   password: 'Akshit@42069',         // from Supabase
-  port: 5432,                        // default PostgreSQL port
+  port: 6543,                        // default PostgreSQL port
   ssl: { rejectUnauthorized: false } // required for Supabase
 });
 
