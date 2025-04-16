@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 
 // PostgreSQL (Supabase) connection
 const pool = new Pool({
-  user: 'postgres',                  // from Supabase
-  host: 'db.bqeuwmonxyysxpwwumvz.supabase.co',        // from Supabase
+  user: 'postgres.bqeuwmonxyysxpwwumvz',                  // from Supabase
+  host: 'aws-0-ap-south-1.pooler.supabase.com',        // from Supabase
   database: 'postgres',              // default database name in Supabase
   password: 'Akshit@2003',         // from Supabase
   port: 5432,                        // default PostgreSQL port
@@ -23,7 +23,7 @@ app.post('/login', async (req, res) => {
 
   try {
     const result = await pool.query(
-      'SELECT * FROM users WHERE username = ? AND password = ?',
+      'SELECT * FROM users WHERE username = $1 AND password = $2',
       [username, password]
     );
 
