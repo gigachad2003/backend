@@ -7,15 +7,25 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// PostgreSQL (Supabase) connection
+const { Pool } = require('pg');
+
 const pool = new Pool({
-  user: 'postgres.bqeuwmonxyysxpwwumvz',                  // from Supabase
-  host: 'aws-0-ap-south-1.pooler.supabase.com',        // from Supabase
-  database: 'postgres',              // default database name in Supabase
-  password: 'Akshit@42069',         // from Supabase
-  port: 6543,                        // default PostgreSQL port
-  ssl: { rejectUnauthorized: false } // required for Supabase
+  connectionString: process.env.DATABASE_URL, // from Supabase pooling URL
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
+
+// // PostgreSQL (Supabase) connection
+// const pool = new Pool({
+//   user: 'postgres.bqeuwmonxyysxpwwumvz',                  // from Supabase
+//   host: 'aws-0-ap-south-1.pooler.supabase.com',        // from Supabase
+//   database: 'postgres',              // default database name in Supabase
+//   password: 'Akshit@42069',         // from Supabase
+//   port: 6543,                        // default PostgreSQL port
+//   ssl: { rejectUnauthorized: false } // required for Supabase
+// });
 
 
 
