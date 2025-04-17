@@ -18,6 +18,15 @@ const pool = new Pool({
   }
 });
 
+pool.connect()
+  .then(client => {
+    console.log("Connected to the database successfully");
+    client.release();  // Release the client when done
+  })
+  .catch(err => {
+    console.error('Error connecting to the database:', err.message);
+  });
+
 
 // // PostgreSQL (Supabase) connection
 // const pool = new Pool({
