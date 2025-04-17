@@ -14,7 +14,7 @@ const pool = new Pool({
   database: 'postgres',              // default database name in Supabase
   password: 'Akshit@42069',         // from Supabase
   port: 6543,                        // default PostgreSQL port
-  ssl: { rejectUnauthorized: false } // required for Supabase
+  ssh: { rejectUnauthorized: false } // required for Supabase
 });
 
 
