@@ -94,5 +94,7 @@ app.post('/login', async (req, res) => {
 app.listen(3000, () => {
   console.log('Server running on port 3000');
   console.log("DATABASE_URL:", process.env.DATABASE_URL);
+  console.log("pg version:", require('pg/package.json').version);
+
 
 });
