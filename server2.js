@@ -61,31 +61,31 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// // Signup API
-// app.post('/signup', async (req, res) => {
-//   const { username, password } = req.body;
+// Signup API
+app.post('/signup', async (req, res) => {
+  const { username, password } = req.body;
 
-//   try {
-//     const check = await pool.query(
-//       'SELECT * FROM users WHERE username = $1',
-//       [username]
-//     );
+  try {
+    const check = await pool.query(
+      'SELECT * FROM users WHERE username = $1',
+      [username]
+    );
 
-//     if (check.rows.length > 0) {
-//       return res.status(400).json({ message: 'Username already exists' });
-//     }
+    if (check.rows.length > 0) {
+      return res.status(400).json({ message: 'Username already exists' });
+    }
 
-//     await pool.query(
-//       'INSERT INTO users (username, password) VALUES ($1, $2)',
-//       [username, password]
-//     );
+    await pool.query(
+      'INSERT INTO users (username, password) VALUES ($1, $2)',
+      [username, password]
+    );
 
-//     res.status(200).json({ message: 'Signup successful' });
-//   } catch (err) {
-//     console.error('Signup error:', err);
-//     res.status(500).json({ message: 'Signup failed' });
-//   }
-// });
+    res.status(200).json({ message: 'Signup successful' });
+  } catch (err) {
+    console.error('Signup error:', err);
+    res.status(500).json({ message: 'Signup failed' });
+  }
+});
 
 // // PSU list API
 // app.get('/psulist', async (req, res) => {
