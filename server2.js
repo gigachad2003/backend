@@ -87,16 +87,16 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// // PSU list API
-// app.get('/psulist', async (req, res) => {
-//   try {
-//     const result = await pool.query('SELECT * FROM psu'); // table name must match
-//     res.json(result.rows);
-//   } catch (err) {
-//     console.error('Error fetching PSU data:', err);
-//     res.status(500).json({ error: 'Database error' });
-//   }
-// });
+// PSU list API
+app.get('/psulist', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM psu'); // table name must match
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching PSU data:', err);
+    res.status(500).json({ error: 'Database error' });
+  }
+});
 
 // Start server
 
